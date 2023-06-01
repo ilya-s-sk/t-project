@@ -1,8 +1,8 @@
 <script>
-	import './index.css';
+	import style from './app.pcss';
 	import First from './components/first/index.svelte';
 </script>
 
-<main class="main">
-	<First name='friendss!' />
+<main class={style.main}>
+	<First />
 </main>
