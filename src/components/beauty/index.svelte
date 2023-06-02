@@ -21,7 +21,7 @@
       {#if isCold}
         <div transition:fade>
           <img 
-            class={style.img}
+            class={style.image}
             src={img2}
             alt="Танчека красивая в шапке"
           >
@@ -30,7 +30,7 @@
       {:else}
         <div transition:fade>
           <img
-            class={style.img}
+            class={style.image}
             src={img}
             alt="Танечка красивая просто"
           >
