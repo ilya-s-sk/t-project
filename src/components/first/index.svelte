@@ -11,15 +11,23 @@
 
   let audio;
   let button;
+  let innerWidth;
 
   let step = 0;
-
-  let position = 0;
-
+  let sign = '';
+  
+  $: isMobile = innerWidth <= 650;
   $: isEnough = step === audiosSources.length;
 
   function handleClick() {
-    if (isEnough) return;
+    if (isEnough) {
+      leave()
+      return;
+    };
+
+    if (step === 0) {
+      alert('Включи звук!')
+    }
 
     audio.pause();
     audio.src = audiosSources[step];
@@ -31,13 +39,17 @@
   function leave() {
     if (!isEnough) return;
 
-    position += 20;
-    button.style.left = `${position}px`;
+    const minValue = isMobile ? 50 : 200;
+    const maxValue = isMobile ? 200 : 500;
+
+    const value = Math.random() * (maxValue - minValue) + minValue;
+    button.style = `transform: translateX(${sign}${value}px);`
+    sign = sign === '' ? '-' : '';
   }
 </script>
 
+<svelte:window bind:innerWidth={innerWidth}/>
 <section class={style.root}>
-
   <h1 class={style.title}>
     Добро пожаловать<br>
     на&nbsp;персональную страницу<br>
@@ -47,7 +59,7 @@
     <button
       class={`${style.icon} ${isEnough ? style.icon_enough : ''}`}
       on:click={handleClick}
-      on:mousemove={leave}
+      on:mouseenter={!isMobile && leave}
       bind:this={button}
       title="Танечка котёнок"
     />
