@@ -1,0 +1,80 @@
+.sex {
+  position: relative;
+  padding: 0;
+  overflow: hidden;  
+  animation: sizing 1s infinite alternate; 
+}
+
+.bg {
+  position: absolute;
+  inset: -200px;
+  background-image: url('../../assets/photos/sex.jpeg');
+  background-size: 120px 170px;
+  animation: rotating 7s infinite linear; 
+}
+
+.inner {
+  backdrop-filter: blur(4px);
+}
+
+.scrollBlock {
+  position: relative;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.scrollBlock:last-child {
+  margin-bottom: 0;
+}
+
+.titleBlock {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.scrollBlock:first-child .titleBlock, 
+.scrollBlock:nth-child(5) .titleBlock {
+  animation-delay: 0.6s;
+  animation: scrollText 12s infinite linear;
+}
+.scrollBlock:nth-child(2) .titleBlock,
+.scrollBlock:nth-child(6) .titleBlock {
+  animation-delay: 0.6s;
+  animation: scrollText2 15s infinite linear;
+}
+.scrollBlock:nth-child(3) .titleBlock,
+.scrollBlock:nth-child(7) .titleBlock {
+  animation-delay: 0.6s;
+  animation: scrollText 17s infinite linear;
+}
+.scrollBlock:nth-child(4) .titleBlock,
+.scrollBlock:nth-child(8) .titleBlock {
+  animation-delay: 0.6s;
+  animation: scrollText2 9s infinite linear;
+}
+
+.title {
+  font-size: 60px;
+  white-space: nowrap;
+}
+
+@keyframes rotating {
+  from   { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sizing {
+  from   { transform: scale(0.97); }
+  to { transform: scale(1.05); }
+}
+
+@keyframes scrollText {
+  from   { transform: translateX(0%); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes scrollText2 {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0%); }
+}

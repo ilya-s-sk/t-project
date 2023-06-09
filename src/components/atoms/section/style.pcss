@@ -6,16 +6,16 @@
   opacity: 1;
 
   transition: 0.5s ease-in;
-  transition-property: opacity, transform;
+  transition-property: opacity, transform; 
+}
 
-  &:not(:first-child) {
-    margin-top: 30px;
-  }
+.section.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+}
 
-  &.hidden {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
+.section:not(:first-child) {
+  margin-top: 30px;
 }
 
 @media screen and (min-width: 992px) {

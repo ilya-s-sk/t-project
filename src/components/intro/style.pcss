@@ -22,13 +22,14 @@
   cursor: pointer;
   transition: 0.3s ease;
   transition-property: transform;
+}
 
-  &:hover {
-    transform: scale(1.05);
-  }
-  &:active {
-    transform: scale(0.95);
-  }
+.icon:hover {
+  transform: scale(1.05);
+}
+
+.icon:active {
+  transform: scale(0.95);
 }
 
 .message {
@@ -45,10 +46,8 @@
   animation: flying 0.7s alternate infinite ease-in;
 }
 
-.icon_enough {
-  .message {
-    animation: rotateting 0.3s alternate infinite;
-  }
+.icon_enough .message {
+  animation: rotateting 0.3s alternate infinite;
 }
 
 .text {
@@ -67,10 +66,10 @@
   background-size: cover;
   transform: rotate(10deg);
   animation: bitting 1s infinite;
+}
 
-  &:hover {
-      animation-duration: 0.5s;
-  }
+.heart:hover {
+  animation-duration: 0.5s;
 }
 
 @media screen and (min-width: 992px) {

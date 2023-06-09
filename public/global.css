@@ -61,18 +61,6 @@ button {
 	display: block;
 }
 
-button:disabled {
-	color: #999;
-}
-
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
-button:focus {
-	border-color: #666;
-}
-
 .gradientText {
 	background: linear-gradient(to right, rgb(255, 0, 128), rgb(200, 37, 157), rgb(140, 71, 153), rgb(68, 46, 159), rgb(0, 50, 160));
 	-webkit-background-clip: text;
