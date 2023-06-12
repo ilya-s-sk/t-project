@@ -1,7 +1,8 @@
 <script>
-  import { fly, fade } from "svelte/transition";
+  import { fly } from "svelte/transition";
 
   import Section from "../atoms/section/index.svelte";
+  import Title from '../atoms/title/index.svelte';
   import style from "./style.pcss";
 
   import img1 from "../../assets/photos/cool-and-cute-1.jpeg";
@@ -33,18 +34,18 @@
 
   let currentStep = 0;
 
-  $: activeImages = images.slice(0, currentStep);
-
   function handleClick() {
     currentStep = currentStep === images.length - 1 ? 0 : currentStep + 1;
   }
 </script>
 
 <Section class={style.coolAndCute}>
-  <h2 class={style.title}>
-    <span class={`gradientText ${style.count}`}>2</span><br />
-    Танечка может быть какой угодно
-  </h2>
+  <span class={style.emoji}>😍</span>
+  <Title
+  class={style.title}
+    count={2}
+    content="Танечка может быть какой угодно"
+  />
   <div class={style.card}>
     {#each images as image, index}
       {#if index <= currentStep && image}

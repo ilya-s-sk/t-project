@@ -1,12 +1,5 @@
 .title {
-  font-size: var(--h2-fs);
-  line-height: var(--h2-lh);
   margin-bottom: 20px;
-}
-
-.count {
-  font-size: 60px;
-  line-height: 70px;
 }
 
 .card {
@@ -61,16 +54,24 @@
   background-color: var(--main-1);
 }
 
+.emoji {
+  position: absolute;
+  font-size: 70px;
+  right: -8px;
+  top: -20px;
+  transform: rotate(15deg);
+  transition: 0.4s ease transform;
+}
+
+.emoji:hover {
+  animation: rotating 0.8s ease infinite backwards;
+}
+
 @media screen and (min-width: 650px) {
   .coolAndCute {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 40px;
-  }
-
-  .title .count {
-    font-size: 68px;
-    line-height: 80px;
   }
 
   .card {
@@ -80,5 +81,20 @@
 
   .button {
     width: 60%;
+  }
+
+  .emoji {
+    font-size: 120px;
+    right: -20px;
+    top: -40px;
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

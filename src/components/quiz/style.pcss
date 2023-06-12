@@ -1,0 +1,82 @@
+.title {
+  margin-bottom: 10px;
+}
+
+.text {
+  margin-bottom: 20px;
+  font-size: var(--text-fs);
+}
+
+.quiz {
+  box-sizing: border-box;
+  height: 350px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.button {
+  padding: 5px 10px;
+  background-color: #575757;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.question {
+  min-height: 70px;
+  font-size: var(--text-fs);
+  margin-bottom: 30px;
+}
+
+.optionsList {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  row-gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.option {
+  padding: 5px 20px;
+  background-color: #575757;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.option input {
+  opacity: 0;
+}
+
+.option_correct {
+  background-color:limegreen;
+}
+.option_incorrect {
+  background-color: crimson;
+}
+
+.nextButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: end;
+  padding: 5px;
+  border-radius: 50%;
+
+  transition: 0.3s ease opacity;
+  cursor: pointer;
+}
+
+.nonVisible {
+  opacity: 0;
+  pointer-events: none;
+}

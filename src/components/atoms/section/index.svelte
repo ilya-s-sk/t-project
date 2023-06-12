@@ -1,11 +1,13 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
   import style from './style.pcss';
 
   export let isAnimated = true;
 
   let comp;
   let isHidden = true;
+
+  const dispatch = createEventDispatcher();
 
   onMount(() => {
     if (!isAnimated) {
@@ -16,6 +18,7 @@
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             observer.unobserve(entry.target);
+            dispatch('intersect');
             isHidden = false;
           }
         });

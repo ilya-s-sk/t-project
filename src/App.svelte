@@ -4,6 +4,7 @@
 	import Beauty from './components/beauty/index.svelte';
 	import CoolAndCute from './components/cool-and-cute/index.svelte';
 	import Sex from './components/sex/index.svelte';
+	import Quiz from './components/quiz/index.svelte';
 </script>
 
 <main class={style.main}>
@@ -11,4 +12,5 @@
 	<Beauty />
 	<CoolAndCute />
 	<Sex />
+	<Quiz />
 </main>
