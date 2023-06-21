@@ -1,5 +1,5 @@
 <script>
-  import { scale, slide } from "svelte/transition";
+  import { scale } from "svelte/transition";
 
   import Section from "../atoms/section/index.svelte";
   import Title from "../atoms/title/index.svelte";
@@ -17,8 +17,8 @@
   let hasAnswer = false;
   let choosenAnswerIndex = null;
 
-  let shownResult = true;
-  let resultKey = 'min';
+  let shownResult = false;
+  let resultKey = null;
 
   const quizContent = [
     {
