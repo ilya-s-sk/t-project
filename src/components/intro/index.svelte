@@ -19,9 +19,10 @@
     'Мне уже не нравится!'
   ]
 
-  let audio;
   let button;
   let innerWidth;
+
+  const audioObj = {};
 
   let step = 0;
   let sign = '';
@@ -39,9 +40,10 @@
       alert('Не забудь включить звук!')
     }
 
-    audio.pause();
-    audio.src = audiosSources[step];
-    audio.play();
+    if (step !== 0) {
+      audioObj[step - 1].pause();
+    }
+    audioObj[step].play();
 
     step++;
   }
@@ -77,6 +79,8 @@
     </button>
     <p class={style.text}>Здесь вы&nbsp;узнаете,<br>почему Танечка&nbsp;&mdash;<br>самый лучший котёнок на&nbsp;свете</p>
   </div>
-  <audio bind:this={audio} src="" />
+  {#each audiosSources as audio, index}
+    <audio bind:this={audioObj[index]} src={audio} />
+  {/each}
   <div class={style.heart} />
 </Section>

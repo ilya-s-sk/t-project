@@ -22,7 +22,7 @@
 
   const quizContent = [
     {
-      question: "Наиболее значимый орган кабана обыкновенного",
+      question: "Наиболее значимый орган кабана обыкновенного 🐗",
       answers: [
         {
           text: "Уши",
@@ -174,7 +174,7 @@
 </script>
 
 <Section class={style.root}>
-  <Title class={style.title} count={4} content="Таня очень весёлая!" />
+  <Title class={style.title} count={4} content="Танечка очень весёлая!" />
   <p class={style.text}>Определи себя по знанию приколов</p>
   <div class={style.quiz}>
     {#if isQuizStarted && !shownResult}

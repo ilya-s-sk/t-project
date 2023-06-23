@@ -7,6 +7,7 @@
 	import Sex from './components/sex/index.svelte';
 	import Quiz from './components/quiz/index.svelte';
 	import Animals from './components/animals/index.svelte';
+	import Words from './components/words/index.svelte';
 </script>
 
 <main class={style.main}>
@@ -16,4 +17,5 @@
 	<Sex />
 	<Quiz />
 	<Animals />
+	<Words />
 </main>
