@@ -4,9 +4,11 @@
 
   import { words } from './data';
 
-  $: define = words[randIndex] || '???';
+  shuffle(words);
 
-  let randIndex = null;
+  $: define = words[currentIndex] || '???';
+
+  let currentIndex = null;
 
   let isChanging = false;
   let isAnimationStart = false;
@@ -16,18 +18,26 @@
     isChanging = true;
 
     isAnimationStart = true;
-    
+
 
     setTimeout(() => {
-      let newRandInd = Math.floor(Math.random() * words.length);
-      while (randIndex === newRandInd) {
-        newRandInd = Math.floor(Math.random() * words.length);
+      if (currentIndex === words.length - 1) {
+        shuffle(words);
+        currentIndex = null;
       }
-      randIndex = newRandInd;
+      currentIndex = typeof currentIndex === 'number' ? currentIndex + 1 : 0;
       isAnimationStart = false;
       isChanging = false;
     }, 500)
   }
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
 </script>
 
 <Section class={style.words}>
@@ -37,7 +47,7 @@
   <h2 class={`${style.define} ${isAnimationStart ? style.animation : ''}`}>
     Танечка &mdash;<br><span class={style.defineText}>{define}</span>
   </h2>
-  <button on:click={defineWord}>
+  <button class={style.button} on:click={defineWord}>
     Какая?
   </button>
 </Section>
