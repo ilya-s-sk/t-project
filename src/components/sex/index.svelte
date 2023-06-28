@@ -33,8 +33,10 @@
   }
 
   function play() {
-    console.log('play');
-    audio.play()
+    if (!isPlaying) {
+        audio.play();
+      }
+      isPlaying = true;
   }
 
   onMount(() => {
@@ -44,7 +46,7 @@
 
 <Section class={style.sex} bind:element={el}>
   <div class={style.bg} />
-  <div class={style.inner}>
+  <div class={style.inner} on:click={play}>
     <div class={style.scrollBlock}>
       <div class={style.titleBlock}>
         <h2 class={ `gradientText ${style.title}`}>
