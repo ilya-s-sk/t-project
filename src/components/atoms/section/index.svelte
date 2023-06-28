@@ -3,6 +3,8 @@
   import style from './style.pcss';
 
   export let isAnimated = true;
+  export let once = true;
+  export let element = null;
 
   let comp;
   let isHidden = true;
@@ -10,6 +12,8 @@
   const dispatch = createEventDispatcher();
 
   onMount(() => {
+    element = comp;
+
     if (!isAnimated) {
       return
     };
@@ -17,7 +21,7 @@
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            observer.unobserve(entry.target);
+            once && observer.unobserve(entry.target); 
             dispatch('intersect');
             isHidden = false;
           }
