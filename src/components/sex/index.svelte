@@ -3,7 +3,9 @@
   import Section from "../atoms/section/index.svelte";
   import style from "./style.pcss";
 
-  let el, audio;
+  let audio;
+
+  let el; 
 
   let isPlaying = false;
 
@@ -40,13 +42,14 @@
   }
 
   onMount(() => {
+    audio = document.getElementById('phonk_audio');
     window.addEventListener('scroll', handleScroll);
   })
 </script>
 
 <Section class={style.sex} bind:element={el}>
   <div class={style.bg} />
-  <div class={style.inner} on:click={play}>
+  <div class={style.inner} on:click={() => audio.play()}>
     <div class={style.scrollBlock}>
       <div class={style.titleBlock}>
         <h2 class={ `gradientText ${style.title}`}>
@@ -112,5 +115,4 @@
       </div>
     </div>
   </div>
-  <audio src="https://dl2.mp3party.net/online/10848410.mp3" bind:this={audio} loop="true"></audio>
 </Section>
